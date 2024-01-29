@@ -1,3 +1,4 @@
+import inspect
 # Python does not techically have arrays
 # Python lists can be used as arrays 
 # to work with arrays in Python you will have to import a library, like the NumPy library.
@@ -134,15 +135,56 @@ print(arrInsert) # [2, 4, 'surprise', 1, 8, 5]
 # Time complexity: O(N)
 # Auxiliary Space: O(1)
 
-
-# print(len(thislist))
-# insert at the end of a sorted array
+# insert into a sorted array
+# first requires search (complexity depends on search alg)
+# then, shift up to index (up to n shifts)
+# then insert (1 operation)
     
 #--------------remove----------------------------
+# methods: pop(item at index), remove(item at index ?), del(), clear()
+# custom
 
+# replicate remove() method, remove an element at an unknown location 
+# in an unsorted array
+# first, search for the item, then delete item, then shift items over
+print('\n')
+print('removeElement')
+def removeElement(arr, x):
+    n = len(arr)
+    delete = None
+    for i in range(n-1):
+        if arr[i] == x:
+            delete = i
+    if delete != None:
+        for i in range(delete, n-2, 1):
+           print(arr[i])
+           arr[i] = arr[i+1]
+           print('arr', arr)
+    
+    return arr
 
+arrRemove = [10, 50, 30, 40, 20]
+keyRemove = 30
 
+print(removeElement(arrRemove, keyRemove))
 
+# Python program to delete an element
+# from an unsorted array
+ 
+# Driver's code
+if __name__ == '__main__':
+    # Declaring array and key to delete
+    arr = [10, 50, 30, 40, 20]
+    key = 30
+  
+    print("Array before deletion:")
+    print (arr)
+  
+    # deletes key if found in the array 
+    # otherwise shows error not in list
+    arr.remove(key)
+    print("Array after deletion")
+    print(arr)
 #------------------------------------------
   
 # sort, copy, join, loop
