@@ -33,19 +33,8 @@ def binarySearchIt(arr, target):
 			
 print(binarySearchIt(arr, target))
 
-# n = len(arr)
-# lo = 0
-# mid = int(n/2)
-
-# print(arr[mid])
-
-# if arr[mid] == target:
-#     print(mid)
-# elif arr[mid] > target:
-
-
-
 # Iterative Binary Search Function
+# https://www.geeksforgeeks.org/binary-search/
 # It returns index of x in given array arr if present,
 # else returns -1
 # def binary_search(arr, x):
@@ -85,5 +74,37 @@ print(binarySearchIt(arr, target))
 # else:
 # 	print("Element is not present in array")
 
+# ---------------------------------------------------------------------
+# practice reproduction of Iterative Binary Search
 
+# Test Input
+arr = [1, 2, 3, 5, 6]
+x = 3
 
+# Iterative Binary Search Function
+
+def binarySearch(arr, target):
+	lo = 0
+	hi = len(arr) - 1
+	mid = 0 # still not sure why we initialize here
+
+	while lo <= hi: 
+		mid = lo + (hi-lo)//2 # gets the midpoint index of the array, and avoids direct addition of lo + hi, which could cause overflow if the indexes were sufficiently large
+
+		if arr[mid] > target:
+			hi = mid - 1 
+		elif arr[mid] < target:
+			lo = mid + 1
+		else:
+			return mid
+	return -1 # indicate that target was not found
+
+# Function Call
+print("-------------------------")
+result = binarySearch(arr, x)
+if result == -1:
+	print("Your value was not found")
+else:
+	print("Your value was found at index: ", result)
+
+# ---------------------------------------------------------------------
