@@ -1,6 +1,5 @@
 # search ordered array for any duplicate values
-# does order affect efficiency? 
-# I don't think so because I think we still have to check every value...
+# does order affect efficiency? YES! bc it allows for adjacent value comparison
 
 # ------------------------------------- #
 # Input : arr= [1, 5, 5, 6, 6, 7]
@@ -23,7 +22,7 @@
 
 # brute force
 # linear search for each element in array
-# that means ~O(n^2), technically it's less than n^2, nlogn?
+# that means ~O(n^2), technically it's less than n^2
 arr = [1, 5, 5, 6, 6, 7]
 arr = [1, 0, 2, 3, 1, 7]
 n = len(arr)
