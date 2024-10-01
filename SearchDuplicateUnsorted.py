@@ -52,7 +52,20 @@ def sortSearchDuplicate(arr):
     return False
 print(sortSearchDuplicate(arr))
 
+# create dictionary, check for element in dictionary during creation
+def dictDuplicate(arr):
+    myDict = {}
+    n = len(arr)
+    for element in arr:
+        if element in myDict:
+            print("myDict", myDict)
+            print(element, "already in myDict")
+            return True
+        myDict[element] = "exists"
+    return False
 
+print("DICT")
+print(dictDuplicate(arr))
 
 # create hashset, then check for duplicates
 # create hashet O(n) space complexity
@@ -65,4 +78,5 @@ def setSearchDuplicate(arr):
         hashset.add(element) # create set O(n)
     return False
 
+print("\nHASHSET")
 print(setSearchDuplicate(arr))
