@@ -69,3 +69,64 @@ def isAnagram(input1, input2):
     return True
 
 isAnagram('god', 'ppl')
+
+
+#
+
+# isAnagram?
+word1 = "god"
+word2 = "dog"
+
+# brute force, compare each letter O(n^2)
+# does this handle duplicate values? I don't think so... oh wait, check the length
+# still... is there something like ggod and ddog that would be a false positive? I think so
+# I guess it has to be sorted first
+def isAnagram1(word1, word2):
+    if len(word1) != len(word2):
+        return False
+    else:
+        n = len(word1)
+        # res = False
+        for i in range(n):
+            for j in range(n):
+                print("check")
+                print(word1[i], word2[j])
+                if word1[i] == word2[j]:
+                    continue
+                
+                
+# array: create sorted array of letters and compare 
+def isAnagram2(word1, word2):
+    if len(word1) != len(word2):
+        return False
+    else:
+        arr1 = []
+        arr2 = []
+        for i in range(len(word1)):
+            arr1.append(word1[i])
+            arr2.append(word2[i])
+        arr1.sort()
+        arr2.sort()
+        print(arr1, arr2)
+        if arr1 == arr2:
+            return True
+        else:
+            return False
+
+print(isAnagram2(word1, word2))
+
+# dictionary: create dictionary of letters w lettercount and compare
+
+# python cheat is string.sort()
+def isAnagram0(word1, word2):
+    print(sorted(word1))
+    if sorted(word1) == sorted(word2):
+        return True
+    else:
+        return False
+
+print(isAnagram0(word1, word2))
+
+# group anagrams
+words = ["god", "dog", "eat", "tea"]
+# 

@@ -123,5 +123,49 @@ def twoSumHash(nums, target):
 
 twoSumHash(nums1, target)
 
+# twosum
+# input array
+# output index of two distinct nums in arr that sum to a target value
+# assume only one valid combination exists
+
+# Input: 
+# nums = [3,4,5,6], target = 7
+
+# Output: [0,1]
+
+nums = [3,4,5,6]
+
+# brute force
+def twoSum(nums, target):
+    n = len(nums)
+    for i in range(n - 1):
+        print("i--", nums[i])
+        for j in range(i+1, n):
+            print("j", nums[j])
+            if nums[i] + nums[j] == target:
+                return [i, j]
+
+
+# print(twoSum(nums, 7))
+
+# can search dict for num, target-num = search for this num
+# {num: index, num2: index}
+def twoSumDict(nums, target):
+    numsDict = {}
+    for i in range(len(nums)):
+        print("i", i, nums[i])
+        # check if value to get target exists
+        check = target - nums[i]
+        # print(check)
+        if check in numsDict:
+            return [numsDict[check], i]
+        else:
+            numsDict[nums[i]] = i
+        
+
+
+
+print(twoSumDict(nums, 7))
+    
 
 

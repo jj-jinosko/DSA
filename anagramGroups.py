@@ -65,3 +65,42 @@ print(groupAnagrams(arr1))
 # [['cat', 'act'], ['eat', 'ate', 'tea']]
 
 
+input = ['eat', 'ate', 'tea', 'god', 'dog']
+
+
+test = {'tea': {'t': 1, 'e': 1, 'a':1}}
+print(test.get('tea', {}).get('t', 0))
+
+# ===========================================================================
+# I made up this solution! (not from neetcode)
+# make a dictionary of the word + its lettercount dict
+# make the letterCount dicts into sorted tuples that can be used to group the anagrams
+
+
+def groupAnagrams2(words):
+    words_dict = {}
+    groups_dict = {}
+    for word in words:
+        words_dict[word] = {}
+        
+    # print(words_dict)
+    for key in words_dict:
+        # print(key)
+        for letter in key:
+            # print(letter)
+            words_dict[key][letter] = words_dict.get(key, {}).get(letter, 0) + 1
+            # print(words_dict[key])
+    
+    for word in words_dict:
+        countKey = list(words_dict[word])
+        countKey.sort()
+        countKey = tuple(countKey)
+        print(countKey)
+
+        groups_dict[countKey] = groups_dict.get(countKey, []) + [word]
+
+    print(groups_dict)
+
+
+
+groupAnagrams2(input)
