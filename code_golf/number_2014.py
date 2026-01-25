@@ -1,3 +1,7 @@
+# https://codegolf.stackexchange.com/questions/17005/produce-the-number-2014-without-any-numbers-in-your-source-code
+
+
+# tests
 myString = "—"
 
 result = myString.encode()
@@ -19,4 +23,9 @@ print(text_unicode)
 print(check)
 
 
+
+# my solution
+
 print(ord('ߞ'))
+
+# alt
